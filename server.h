@@ -9,6 +9,7 @@
 #include <QTextEdit>
 #include <QLayout>
 #include <QLabel>
+#include <QLineEdit>
 class QTcpServer;
 class QTextEdit;
 class QTcpSocket;
@@ -27,10 +28,12 @@ public:
 public slots:
     virtual void slotNewConnection();
     void slotReadClient();
-
+    void slotSendToClient();
 private:
     QTcpServer* m_ptcpServer;
     QTextEdit* m_ptxt;
+    QLineEdit* lineEdit;
+    QTcpSocket* pClientSocket;
     quint16 m_nNextBlockSize;
     Ui::Server *ui;
 private:
